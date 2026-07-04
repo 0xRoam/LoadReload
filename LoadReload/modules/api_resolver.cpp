@@ -1,18 +1,6 @@
 #include "api_resolver.h"
 #include <windows.h>
 #include <winnt.h>
-#include <cstdio>
-
-
-unsigned long hashstr(const char* s) {
-    unsigned long hash = 0xDEADBEEF;
-    while (*s) {
-        hash = (hash >> 3) | (hash << 29);
-        hash ^= *s++;
-        hash += 0x55555555;
-    }
-    return hash;
-}
 
 void* findfunc(void* module, unsigned long hash) {
     auto dos = (IMAGE_DOS_HEADER*)module;
