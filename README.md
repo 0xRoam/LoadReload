@@ -1,5 +1,5 @@
 # LoadReload
-Shellcode Loader for Master Thesis, designed for Sliver-Shellcode (smaller than 25MB....).
+Shellcode Loader (based on what i did for my Master Thesis), designed for Sliver-Shellcode (smaller than 25MB....).
 
 
 > [!Note]
